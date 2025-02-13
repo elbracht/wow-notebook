@@ -21,6 +21,8 @@ function addon:OnInitialize()
     },
   })
   icon:Register("Notebook", LDB, self.db.profile.minimap)
+
+  NotebookFrame.editBox:SetText(self.db.profile.note)
 end
 
 function NotebookFrame_OnLoad(self)
@@ -30,10 +32,23 @@ function NotebookFrame_OnLoad(self)
   self:RegisterForDrag("LeftButton");
 end
 
+function NotebookFrame_OnUpdate(self, elapsed)
+	-- any mouse click anywhere else will remove focus from edit box
+	local isDown = IsMouseButtonDown("LeftButton") or IsMouseButtonDown("RightButton")
+	if not self:IsMouseOver() and isDown then
+		self.editBox:ClearFocus()
+	end
+end
+
 function NotebookFrame_OnDragStart(self)
   self:StartMoving()
 end
 
 function NotebookFrame_OnDragStop(self)
   self:StopMovingOrSizing()
+end
+
+function NotebookFrameEditBox_OnTextChanged(self)
+	local editBoxText = self:GetText()
+  addon.db.profile.note = editBoxText
 end

@@ -13,8 +13,42 @@
     <Size x="316" y="427" /> <!-- 338, 424 -->
     <Scripts>
       <OnLoad function="NotebookFrame_OnLoad" />
+      <OnUpdate function="NotebookFrame_OnUpdate" />
       <OnDragStart function="NotebookFrame_OnDragStart" />
       <OnDragStop function="NotebookFrame_OnDragStop" />
     </Scripts>
+
+    <Frames>
+      <EditBox name="$parentEditBox" parentKey="editBox" letters="512" multiLine="true"
+        enableMouse="true" autoFocus="false">
+        <Anchors>
+          <Anchor point="TOPLEFT" x="7" y="-63" />
+          <Anchor point="BOTTOMRIGHT" x="-9" y="68" />
+        </Anchors>
+        <TextInsets>
+          <AbsInset left="22" right="20" top="20" bottom="10" />
+        </TextInsets>
+        <FontString inherits="MailTextFontNormal"> <!-- GameFontNormal_NoShadow -->
+          <Color r="0.18" g="0.12" b="0.06" />
+        </FontString>
+        <HighlightColor a="1.0" r="0.82" g="0.82" b="0.82" />
+        <Scripts>
+          <OnTextChanged function="NotebookFrameEditBox_OnTextChanged" />
+          <OnEscapePressed function="EditBox_ClearFocus" />
+        </Scripts>
+      </EditBox>
+    </Frames>
+
+    <Layers>
+      <Layer level="BACKGROUND">
+        <Texture name="$parentBg" parentKey="bg" file="Interface\QuestFrame\QuestBG">
+          <Size x="512" y="512" />
+          <Anchors>
+            <Anchor point="TOPLEFT" x="7" y="-63" />
+          </Anchors>
+        </Texture>
+      </Layer>
+    </Layers>
+
   </Frame>
 </Ui>
