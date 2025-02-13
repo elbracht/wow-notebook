@@ -1,0 +1,9 @@
+## Interface: 11501
+## Title: Notebook
+## Notes: Simple notebook for scribbling down whatever.
+## Author: Alexander Elbracht
+## SavedVariables: NotebookDB
+
+embeds.xml
+Notebook.lua
+Notebook.xml

@@ -1,0 +1,20 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ http://wowprogramming.com/FrameXML/UI.xsd">
+
+  <Frame
+    name="NotebookFrame"
+    inherits="ButtonFrameTemplate"
+    parent="UIParent"
+    toplevel="true"
+    frameStrata="MEDIUM"
+    enableMouse="true"
+    movable="true"
+    hidden="true"
+  >
+    <Size x="316" y="427" /> <!-- 338, 424 -->
+    <Scripts>
+      <OnLoad function="NotebookFrame_OnLoad" />
+      <OnDragStart function="NotebookFrame_OnDragStart" />
+      <OnDragStop function="NotebookFrame_OnDragStop" />
+    </Scripts>
+  </Frame>
+</Ui>
