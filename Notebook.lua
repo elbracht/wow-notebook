@@ -8,7 +8,11 @@ local LDB = LibStub("LibDataBroker-1.1"):NewDataObject("Notebook", {
   type = "data source",
   icon = "Interface\\Icons\\inv_misc_note_02",
   OnClick = function()
-    ToggleFrame(NotebookFrame)
+    if InCombatLockdown() then
+      print("|cFFffff00[Notebook]|r |cFFa6a6a6You cannot open the notebook while in combat.|r")
+    else
+      ToggleFrame(NotebookFrame)
+    end
   end,
   OnTooltipShow = function(tooltip)
     tooltip:SetText("Notebook")
@@ -69,7 +73,7 @@ function onEditTextChanged(self)
   if self:GetText() == "" then
     placeholder:Show()
   else
-      placeholder:Hide()
+    placeholder:Hide()
   end
 end
 
