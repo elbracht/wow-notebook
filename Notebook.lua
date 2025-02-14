@@ -34,6 +34,14 @@ function addon:OnInitialize()
   editBox:SetText(addon.db.profile.note)
 end
 
+function onShow()
+  PlaySound(844) -- SOUNDKIT.IG_QUEST_LOG_OPEN
+end
+
+function onHide()
+  PlaySound(845) -- SOUNDKIT.IG_QUEST_LOG_CLOSE
+end
+
 function onUpdate(self, elapsed)
   -- any mouse click anywhere else will remove focus from edit box
   local isDown = IsMouseButtonDown("LeftButton") or IsMouseButtonDown("RightButton")
@@ -104,6 +112,8 @@ local function createNotebookFrame()
   notebookFrame:RegisterForDrag("LeftButton")
 
   -- Register the frame scripts with the event handler functions
+  notebookFrame:SetScript("OnShow", onShow)
+  notebookFrame:SetScript("OnHide", onHide)
   notebookFrame:SetScript("OnUpdate", onUpdate)
   notebookFrame:SetScript("OnMouseDown", onMouseDown)
   notebookFrame:SetScript("OnDragStart", onDragStart)
