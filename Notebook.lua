@@ -12,7 +12,7 @@ local LDB = LibStub("LibDataBroker-1.1"):NewDataObject("Notebook", {
   end,
   OnTooltipShow = function(tooltip)
     tooltip:SetText("Notebook")
-    tooltip:AddLine("Left-click to open / close", 1, 1, 1)
+    tooltip:AddLine("|cFFa6a6a6Left Click:|r Toggle Notebook")
   end,
 })
 
