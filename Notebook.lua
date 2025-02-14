@@ -173,7 +173,7 @@ local function createNotebookFrame()
 
   -- Placeholder
   placeholder = editBox:CreateFontString(nil, "OVERLAY", "GameFontNormal_NoShadow")
-  placeholder:SetPoint("LEFT", editBox, "LEFT", 20, 0)
+  placeholder:SetPoint("LEFT", editBox, "LEFT", 28, 0)
   placeholder:SetText("Enter text here...")
   placeholder:SetTextColor(0, 0, 0, 0.5)
 end
