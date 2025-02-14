@@ -6,4 +6,3 @@
 
 embeds.xml
 Notebook.lua
-Notebook.xml
