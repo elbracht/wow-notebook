@@ -97,7 +97,7 @@ end
 
 local function createNotebookFrame()
   -- Create the frame
-  notebookFrame = CreateFrame("Frame", "NotebookFrame", UIParent, "BasicFrameTemplateWithInset")
+  notebookFrame = CreateFrame("Frame", "NotebookFrame", UIParent, "BasicFrameTemplate")
 
   -- Set the size and properties for the frame
   notebookFrame:SetSize(336, 424)
@@ -125,12 +125,6 @@ local function createNotebookFrame()
   notebookFrame:SetScript("OnDragStart", onDragStart)
   notebookFrame:SetScript("OnDragStop", onDragStop)
 
-  -- Set the background texture
-  local bgTexture = notebookFrame:CreateTexture(nil, "ARTWORK")
-  bgTexture:SetPoint("TOPLEFT", 8, -28)
-  bgTexture:SetPoint("BOTTOMRIGHT", -33, 7)
-  bgTexture:SetTexture("Interface\\AddOns\\Notebook\\Assets\\BG")
-
   local scrollbarTopTexture = notebookFrame:CreateTexture(nil, "ARTWORK")
   scrollbarTopTexture:SetSize(31, 102)
   scrollbarTopTexture:SetPoint("TOPRIGHT", -4, -23)
@@ -156,6 +150,12 @@ local function createNotebookFrame()
   scrollbarBgTexture:SetPoint("BOTTOM", scrollbarBottomTexture, "BOTTOM")
   scrollbarBgTexture:SetColorTexture(0, 0, 0, 0.6)
 
+  -- Set the background texture
+  local bgTexture = notebookFrame:CreateTexture(nil, "ARTWORK")
+  bgTexture:SetPoint("TOPLEFT", 3, -23)
+  bgTexture:SetPoint("BOTTOMRIGHT", -30, 4)
+  bgTexture:SetTexture("Interface\\AddOns\\Notebook\\Assets\\BG")
+
   -- Create a ScrollFrame to make the EditBox scrollable
   local scrollFrame = CreateFrame("ScrollFrame", nil, notebookFrame, "UIPanelScrollFrameTemplate")
   scrollFrame:SetPoint("TOPLEFT", 7, -27)
@@ -165,7 +165,7 @@ local function createNotebookFrame()
   editBox = CreateFrame("EditBox", nil, scrollFrame)
   editBox:SetSize(290, 0)
   editBox:SetFontObject("GameFontNormal_NoShadow")
-  editBox:SetTextColor(0.18, 0.12, 0.06, 1)
+  editBox:SetTextColor(0, 0, 0, 0.8)
   editBox:SetHighlightColor(0.82, 0.82, 0.82, 1.0)
   editBox:SetTextInsets(28, 28, 30, 30)
   editBox:SetMultiLine(true)
