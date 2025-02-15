@@ -4,30 +4,21 @@ local placeholder = nil
 
 local isFirstLoad = true
 
-function ToggleNotebookFrame()
-  if isFirstLoad then
-    if InCombatLockdown() then
-      print("|cffff0000[Notebook] You cannot open the notebook while in combat!|r")
-    else
-      ShowUIPanel(NotebookFrame)
-      isFirstLoad = false
-    end
-  else
-    if NotebookFrame:IsShown() then
-      NotebookFrame:Hide()
-    else
-      NotebookFrame:Show()
-    end
-  end
-end
-
 local addon = LibStub("AceAddon-3.0"):NewAddon("Notebook")
 
 local LDB = LibStub("LibDataBroker-1.1"):NewDataObject("Notebook", {
   type = "data source",
   icon = "Interface\\Icons\\inv_misc_note_02",
   OnClick = function()
-    ToggleNotebookFrame()
+    if InCombatLockdown() then
+      if NotebookFrame:IsShown() then
+        NotebookFrame:Hide()
+      else
+        NotebookFrame:Show()
+      end
+    else
+      ToggleFrame(NotebookFrame)
+    end
   end,
   OnTooltipShow = function(tooltip)
     tooltip:SetText("Notebook")
