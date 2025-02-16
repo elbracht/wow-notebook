@@ -3,6 +3,8 @@
 ## Notes: Simple notebook for scribbling down whatever.
 ## Author: Alexander Elbracht
 ## SavedVariables: NotebookDB
+## Bindings: bindings.xml
 
 embeds.xml
+Locale.lua
 Notebook.lua
