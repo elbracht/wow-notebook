@@ -6,19 +6,23 @@ local isFirstLoad = true
 
 local addon = LibStub("AceAddon-3.0"):NewAddon("Notebook")
 
+function ToggleNotebookFrame()
+  if InCombatLockdown() then
+    if NotebookFrame:IsShown() then
+      NotebookFrame:Hide()
+    else
+      NotebookFrame:Show()
+    end
+  else
+    ToggleFrame(NotebookFrame)
+  end
+end
+
 local LDB = LibStub("LibDataBroker-1.1"):NewDataObject("Notebook", {
   type = "data source",
   icon = "Interface\\Icons\\inv_misc_note_02",
   OnClick = function()
-    if InCombatLockdown() then
-      if NotebookFrame:IsShown() then
-        NotebookFrame:Hide()
-      else
-        NotebookFrame:Show()
-      end
-    else
-      ToggleFrame(NotebookFrame)
-    end
+    ToggleNotebookFrame()
   end,
   OnTooltipShow = function(tooltip)
     tooltip:SetText("Notebook")

@@ -1,5 +1,5 @@
 <Bindings>
   <Binding name="TOGGLE_NOTEBOOK" header="NOTEBOOK" category="Notebook" default="K">
-    ToggleFrame(NotebookFrame)
+    ToggleNotebookFrame()
   </Binding>
 </Bindings>
