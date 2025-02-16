@@ -125,41 +125,16 @@ local function createNotebookFrame()
   notebookFrame:SetScript("OnDragStart", onDragStart)
   notebookFrame:SetScript("OnDragStop", onDragStop)
 
-  local scrollbarTopTexture = notebookFrame:CreateTexture(nil, "ARTWORK")
-  scrollbarTopTexture:SetSize(31, 102)
-  scrollbarTopTexture:SetPoint("TOPRIGHT", -4, -23)
-  scrollbarTopTexture:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
-  scrollbarTopTexture:SetTexCoord(0, 0.484375, 0, 0.4)
-
-  local scrollbarBottomTexture = notebookFrame:CreateTexture(nil, "ARTWORK")
-  scrollbarBottomTexture:SetSize(31, 106)
-  scrollbarBottomTexture:SetPoint("BOTTOMRIGHT", -4, 4)
-  scrollbarBottomTexture:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
-  scrollbarBottomTexture:SetTexCoord(0.515625, 1, 0, 0.4140625)
-
-  local scrollbarMiddleTexture = notebookFrame:CreateTexture(nil, "ARTWORK")
-  scrollbarMiddleTexture:SetSize(31, 1)
-  scrollbarMiddleTexture:SetPoint("TOP", scrollbarTopTexture, "BOTTOM")
-  scrollbarMiddleTexture:SetPoint("BOTTOM", scrollbarBottomTexture, "TOP")
-  scrollbarMiddleTexture:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
-  scrollbarMiddleTexture:SetTexCoord(0, 0.484375, 0.75, 1)
-
-  local scrollbarBgTexture = notebookFrame:CreateTexture(nil, "BACKGROUND")
-  scrollbarBgTexture:SetSize(22, 0)
-  scrollbarBgTexture:SetPoint("TOP", scrollbarTopTexture, "TOP")
-  scrollbarBgTexture:SetPoint("BOTTOM", scrollbarBottomTexture, "BOTTOM")
-  scrollbarBgTexture:SetColorTexture(0, 0, 0, 0.6)
-
   -- Set the background texture
   local bgTexture = notebookFrame:CreateTexture(nil, "ARTWORK")
-  bgTexture:SetPoint("TOPLEFT", 3, -23)
-  bgTexture:SetPoint("BOTTOMRIGHT", -30, 4)
+  bgTexture:SetPoint("TOPLEFT", 3, -22) -- left, top
+  bgTexture:SetPoint("BOTTOMRIGHT", -4, 4) -- right, bottom
   bgTexture:SetTexture("Interface\\AddOns\\Notebook\\Assets\\BG")
 
   -- Create a ScrollFrame to make the EditBox scrollable
   local scrollFrame = CreateFrame("ScrollFrame", nil, notebookFrame, "UIPanelScrollFrameTemplate")
-  scrollFrame:SetPoint("TOPLEFT", 7, -27)
-  scrollFrame:SetPoint("BOTTOMRIGHT", -33, 6)
+  scrollFrame:SetPoint("TOPLEFT", 6, -26) -- left, top
+  scrollFrame:SetPoint("BOTTOMRIGHT", -30, 6) -- right, bottom
 
   -- Create an EditBox inside the ScrollFrame
   editBox = CreateFrame("EditBox", nil, scrollFrame)
